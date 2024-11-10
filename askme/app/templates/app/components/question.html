@@ -4,18 +4,18 @@
             class="mb-4">
         <div>
             <button type="button" class="btn">-</button>
-            <span class="d-inline-block">{{ q.likes }}</span>
+            <span class="d-inline-block">{{ question.likes }}</span>
             <button type="button" class="btn">+</button>
         </div>
     </div>
     <div class="col-10">
-        <a href="#" class="fs-5">{{ q.title }}</a>
-        <p>{{ q.description }}</p>
+        <a href="{% url 'answer' %}?id={{ question.id }}" class="fs-5">{{ question.title }}</a>
+        <p>{{ question.description }}</p>
         <div>
-            <a href="#" class="me-3">answer {{ q.cnt_answers }}</a>
+            <a href="{% url 'answer' %}?id={{ question.id }}" class="me-3">answer ({{ question.cnt_comments }})</a>
             <div class="d-inline-block">
                 <span>Tags: </span>
-                {% for tag in q.tags %}
+                {% for tag in question.tags %}
                     <a href="#">{{ tag }}</a>
                 {% endfor %}
             </div>

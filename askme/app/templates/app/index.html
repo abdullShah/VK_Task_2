@@ -4,31 +4,9 @@
 
 <div class="mb-4">
 	<h4 class="fs-4 d-inline-block me-4">New Questions</h4>
-	<a href="#" class="fs-4 d-inline-block">Hot Questions</a>
+	<a href={% url 'hot' %} class="fs-4 d-inline-block">Hot Questions</a>
 </div>
 
-<div class="mb-4">
-	{% for ques in questions %}
-		{% include 'app/components/question.html' with q=ques %}
-	{% endfor %}
-</div>
-
-<nav aria-label="Page navigation example">
-	<ul class="pagination">
-		{% for i in cnt_pages %}
-			{% if cur_page != i %}
-				<li class="page-item">
-					<a class="page-link" href="?page={{ i }}">{{ i }}</a>
-				</li>
-			{% endif %}
-
-			{% if cur_page == i %}
-				<li class="page-item active">
-					<a class="page-link" href="?page={{ i }}">{{ i }}</a>
-				</li>
-			{% endif %}
-		{% endfor %}
-	</ul>
-</nav>
+{% include 'app/components/questions.html' with questions=questions cnt_pages=cnt_pages cur_page=cur_page %}
 
 {% endblock %}

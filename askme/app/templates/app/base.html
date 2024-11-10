@@ -21,11 +21,11 @@
 	<header class="mb-4">
 		<div class="container">
 			<nav class="navbar border-bottom">
-				<a class="text-dark fs-2 navbar-brand" href="#">AskPupkin</a>
+				<a class="text-dark fs-2 navbar-brand" href="{% url 'home' %}">AskPupkin</a>
 
 				<form class="d-flex gap-3">
 					<input class="form-control" type="search" placeholder="Search" aria-label="Search">
-					<button type="button" class="btn btn-success">ASK!</button>
+					<a href="{% url 'ask' %}" class="btn btn-success" role="button">ASK!</a>
 				</form>
 
 				<!--<div class="d-flex gap-3">

@@ -6,33 +6,27 @@
 		<img src="https://via.placeholder.com/90" width="90" height="90" alt="Avatar" class="mb-4">
 		<div>
 			<button type="button" class="btn">-</button>
-			<span class="d-inline-block">5</span>
+			<span class="d-inline-block">{{ question.likes }}</span>
 			<button type="button" class="btn">+</button>
 		</div>
 	</div>
 	<div class="col-10">
-		<h4 href="#" class="fs-4">How to build a moon park ?</h4>
-		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat consequatur at provident
-			facilis corrupti, sunt deserunt iste vel eligendi quidem sint minus inventore eaque
-			praesentium sit saepe omnis! Accusantium repellat reprehenderit, dicta fuga iure odit
-			fugiat enim nulla quam consectetur sit totam illum accusamus ratione repellendus qui
-			obcaecati, asperiores pariatur? Earum obcaecati sequiat amet omnis, veritatis optio
-			sequiat amet omnis, veritatis optio. Quo!
-		</p>
+		<h4 class="fs-4">{{ question.title }}</h4>
+		<p>{{ question.description }}</p>
 		<div>
 			<div class="d-inline-block">
 				<span>Tags: </span>
-				<a href="#">black-jack</a>
-				<a href="#">bender</a>
+				{% for tag in question.tags %}
+					<a href="#">{{ tag }}</a>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
 </div>
 <div>
-	{% include 'app/components/comment.html' %}
-	{% include 'app/components/comment.html' %}
-	{% include 'app/components/comment.html' %}
+	{% for comment in question.comments %}
+		{% include 'app/components/comment.html' with comment=comment %}
+	{% endfor %}
 </div>
 <form>
 	<div class="mb-3">
